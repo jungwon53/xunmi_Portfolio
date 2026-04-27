@@ -60,7 +60,11 @@ function renderGallery() {
 }
 
 async function loadWorks() {
-  const response = await fetch("/api/artworks");
+  let response = await fetch("/api/artworks");
+  if (!response.ok) {
+    response = await fetch("artworks.json");
+  }
+
   const data = await response.json();
   works = data.works || [];
 

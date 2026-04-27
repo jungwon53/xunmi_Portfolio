@@ -7,9 +7,11 @@
 - 프로젝트 루트: `C:\Users\user\Documents\projects\xunmi`
 - 로컬 URL: `http://localhost:4173`
 - 실행 명령: `npm start`
+- 정적 데이터 생성 명령: `npm run build`
 - 런타임: Node.js 내장 `http` 서버를 사용합니다. 별도 프레임워크나 번들러는 없습니다.
 - 작품 이미지는 `artImg` 폴더에 있습니다.
 - `artImg`에 이미지 파일을 추가하면 서버가 자동으로 갤러리에 반영합니다.
+- GitHub Pages 배포는 `.github/workflows/pages.yml`에서 처리합니다.
 
 ## 주요 파일
 
@@ -17,8 +19,11 @@
 - `styles.css`: 전체 디자인입니다. 미색 종이 배경, 넓은 여백, 조용한 전시실 느낌을 목표로 합니다.
 - `script.js`: `/api/artworks`에서 작품 목록을 불러와 갤러리와 라이트박스를 렌더링합니다.
 - `server.js`: 정적 파일 제공 및 `artImg` 폴더를 읽어 `/api/artworks` JSON을 제공합니다.
+- `scripts/generate-artworks.js`: GitHub Pages 같은 정적 호스팅에서 사용할 `artworks.json`을 생성합니다.
+- `artworks.json`: `npm run build` 또는 GitHub Actions 배포 중 생성되는 정적 작품 목록입니다.
 - `works.json`: 작품별 메타데이터를 선택적으로 적는 파일입니다.
 - `package.json`: `npm start` 스크립트만 둔 최소 구성입니다.
+- `.github/workflows/pages.yml`: `main` 브랜치 푸시마다 GitHub Pages로 자동 배포합니다.
 
 ## 디자인 방향
 
@@ -90,6 +95,20 @@
 - `/styles.css`, `/script.js`, `/artImg/...` 같은 정적 파일 제공
 - `/api/artworks` 요청 시 `artImg` 폴더를 읽어 작품 배열 반환
 - `works.json`의 메타데이터를 파일명 기준으로 병합
+
+## 배포
+
+이 프로젝트는 GitHub Pages로 배포하도록 설정되어 있습니다. `main` 브랜치에 푸시되면 GitHub Actions가 다음 작업을 실행합니다.
+
+1. 저장소 체크아웃
+2. Node.js 설정
+3. `npm run build`로 `artworks.json` 생성
+4. GitHub Pages artifact 업로드
+5. GitHub Pages 배포
+
+로컬 개발에서는 `server.js`가 `/api/artworks`를 제공합니다. GitHub Pages에서는 Node 서버가 없으므로 `script.js`가 `/api/artworks` 요청 실패 후 `artworks.json`을 읽습니다.
+
+처음 GitHub Pages를 사용할 때 저장소 Settings의 Pages source가 GitHub Actions로 되어 있어야 합니다.
 
 API 응답 예시:
 

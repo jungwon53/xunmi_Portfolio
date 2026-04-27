@@ -1,0 +1,84 @@
+{
+  "works": [
+    {
+      "id": "KakaoTalk_20260116_184849875",
+      "file": "KakaoTalk_20260116_184849875.jpg",
+      "src": "artImg/KakaoTalk_20260116_184849875.jpg",
+      "title": "Work 01",
+      "year": "2026",
+      "medium": "Painting",
+      "note": "작품의 첫인상을 대표하는 이미지로 사용할 수 있습니다.",
+      "featured": true
+    },
+    {
+      "id": "KakaoTalk_20260116_184849875_01",
+      "file": "KakaoTalk_20260116_184849875_01.jpg",
+      "src": "artImg/KakaoTalk_20260116_184849875_01.jpg",
+      "title": "Work 02",
+      "year": "",
+      "medium": "",
+      "note": "아직 이름 붙기 전의 장면. 작품이 가진 정적과 온도를 먼저 바라봅니다.",
+      "featured": false
+    },
+    {
+      "id": "KakaoTalk_20260116_184849875_02",
+      "file": "KakaoTalk_20260116_184849875_02.jpg",
+      "src": "artImg/KakaoTalk_20260116_184849875_02.jpg",
+      "title": "Work 03",
+      "year": "",
+      "medium": "",
+      "note": "아직 이름 붙기 전의 장면. 작품이 가진 정적과 온도를 먼저 바라봅니다.",
+      "featured": false
+    },
+    {
+      "id": "KakaoTalk_20260116_184849875_03",
+      "file": "KakaoTalk_20260116_184849875_03.jpg",
+      "src": "artImg/KakaoTalk_20260116_184849875_03.jpg",
+      "title": "Work 04",
+      "year": "",
+      "medium": "",
+      "note": "아직 이름 붙기 전의 장면. 작품이 가진 정적과 온도를 먼저 바라봅니다.",
+      "featured": false
+    },
+    {
+      "id": "KakaoTalk_20260116_184849875_04",
+      "file": "KakaoTalk_20260116_184849875_04.jpg",
+      "src": "artImg/KakaoTalk_20260116_184849875_04.jpg",
+      "title": "Work 05",
+      "year": "",
+      "medium": "",
+      "note": "아직 이름 붙기 전의 장면. 작품이 가진 정적과 온도를 먼저 바라봅니다.",
+      "featured": false
+    },
+    {
+      "id": "KakaoTalk_20260116_184849875_05",
+      "file": "KakaoTalk_20260116_184849875_05.jpg",
+      "src": "artImg/KakaoTalk_20260116_184849875_05.jpg",
+      "title": "Work 06",
+      "year": "",
+      "medium": "",
+      "note": "아직 이름 붙기 전의 장면. 작품이 가진 정적과 온도를 먼저 바라봅니다.",
+      "featured": false
+    },
+    {
+      "id": "KakaoTalk_20260116_184849875_06",
+      "file": "KakaoTalk_20260116_184849875_06.jpg",
+      "src": "artImg/KakaoTalk_20260116_184849875_06.jpg",
+      "title": "Work 07",
+      "year": "",
+      "medium": "",
+      "note": "아직 이름 붙기 전의 장면. 작품이 가진 정적과 온도를 먼저 바라봅니다.",
+      "featured": false
+    },
+    {
+      "id": "KakaoTalk_20260116_184849875_07",
+      "file": "KakaoTalk_20260116_184849875_07.jpg",
+      "src": "artImg/KakaoTalk_20260116_184849875_07.jpg",
+      "title": "Work 08",
+      "year": "",
+      "medium": "",
+      "note": "아직 이름 붙기 전의 장면. 작품이 가진 정적과 온도를 먼저 바라봅니다.",
+      "featured": false
+    }
+  ]
+}
