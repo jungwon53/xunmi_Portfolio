@@ -12,6 +12,7 @@
 - 작품 이미지는 `artImg` 폴더에 있습니다.
 - `artImg`에 이미지 파일을 추가하면 서버가 자동으로 갤러리에 반영합니다.
 - GitHub Pages 배포는 `.github/workflows/pages.yml`에서 처리합니다.
+- Vercel 배포용 설정은 `vercel.json`에 있습니다.
 
 ## 주요 파일
 
@@ -24,6 +25,7 @@
 - `works.json`: 작품별 메타데이터를 선택적으로 적는 파일입니다.
 - `package.json`: `npm start` 스크립트만 둔 최소 구성입니다.
 - `.github/workflows/pages.yml`: `main` 브랜치 푸시마다 GitHub Pages로 자동 배포합니다.
+- `vercel.json`: Vercel에서 `npm run build` 후 프로젝트 루트를 정적 사이트로 배포하도록 지정합니다.
 
 ## 디자인 방향
 
@@ -98,7 +100,21 @@
 
 ## 배포
 
-이 프로젝트는 GitHub Pages로 배포하도록 설정되어 있습니다. `main` 브랜치에 푸시되면 GitHub Actions가 다음 작업을 실행합니다.
+이 프로젝트는 GitHub Pages와 Vercel 배포를 모두 지원할 수 있게 되어 있습니다.
+
+### Vercel
+
+Vercel에서 GitHub 저장소를 import하면 됩니다.
+
+- Framework Preset: Other
+- Build Command: `npm run build`
+- Output Directory: `.`
+
+이 값은 `vercel.json`에도 저장되어 있습니다. Vercel이 GitHub 저장소와 연결되면 이후 `main` 브랜치에 커밋/푸시될 때마다 자동으로 다시 배포됩니다.
+
+### GitHub Pages
+
+GitHub Pages를 쓰는 경우 `main` 브랜치에 푸시되면 GitHub Actions가 다음 작업을 실행합니다.
 
 1. 저장소 체크아웃
 2. Node.js 설정
