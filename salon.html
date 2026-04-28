@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xunmi Salon Wall</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="salon.css" />
+  </head>
+  <body>
+    <header class="salon-header">
+      <a class="mark" href="index.html">Xunmi</a>
+      <nav aria-label="Portfolio variants">
+        <a href="index.html">Quiet</a>
+        <a aria-current="page" href="salon.html">Salon</a>
+        <a href="studio.html">Studio</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="salon-hero" aria-labelledby="salon-title">
+        <p class="eyebrow">Portfolio Variation 01</p>
+        <h1 id="salon-title">A wall of small silences.</h1>
+        <p>
+          작품을 하나의 방에 걸린 장면처럼 배치한 버전입니다. 큰 설명보다 이미지의 밀도, 반복,
+          간격이 먼저 보이도록 만들었습니다.
+        </p>
+      </section>
+
+      <section class="feature-band" aria-label="Featured works">
+        <div class="feature-copy">
+          <p class="eyebrow">Selected</p>
+          <h2>Collected works with a stronger editorial rhythm</h2>
+        </div>
+        <div class="feature-grid" id="feature-grid"></div>
+      </section>
+
+      <section class="salon-wall" aria-labelledby="wall-title">
+        <div class="wall-heading">
+          <p class="eyebrow">Full Wall</p>
+          <h2 id="wall-title">Archive as installation</h2>
+        </div>
+        <div class="wall-grid" id="wall-grid" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="salon.js"></script>
+  </body>
+</html>

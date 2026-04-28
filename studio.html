@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xunmi Moving Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="studio.css" />
+  </head>
+  <body>
+    <header class="studio-header">
+      <a class="mark" href="index.html">Xunmi</a>
+      <nav aria-label="Portfolio variants">
+        <a href="index.html">Quiet</a>
+        <a href="salon.html">Salon</a>
+        <a aria-current="page" href="studio.html">Studio</a>
+      </nav>
+    </header>
+
+    <main class="studio-shell">
+      <section class="stage" id="stage" aria-labelledby="stage-title">
+        <div class="stage-copy">
+          <p class="eyebrow">Portfolio Variation 02</p>
+          <h1 id="stage-title">Moving Studio</h1>
+          <p>작품을 선택하고, 화면 위에서 시선이 움직이면 이미지의 위치와 빛도 함께 반응합니다.</p>
+        </div>
+
+        <figure class="active-work" id="active-work">
+          <img id="active-image" alt="" />
+          <figcaption>
+            <span id="counter">01</span>
+            <strong id="active-title">Loading</strong>
+            <em id="active-meta"></em>
+            <p id="active-note"></p>
+          </figcaption>
+        </figure>
+
+        <div class="controls" aria-label="Artwork controls">
+          <button id="prev-work" type="button" aria-label="이전 작품">Prev</button>
+          <button id="next-work" type="button" aria-label="다음 작품">Next</button>
+        </div>
+      </section>
+
+      <section class="thumb-strip" aria-label="작품 선택">
+        <div class="thumbs" id="thumbs"></div>
+      </section>
+    </main>
+
+    <script src="studio.js"></script>
+  </body>
+</html>
