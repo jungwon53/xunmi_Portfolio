@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xunmi Editorial Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Serif+KR:wght@200;300;400&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --cream: #f5f0e8;
+        --dark: #1a1612;
+        --warm: #8b6f47;
+        --accent: #b34535;
+        --muted: #918477;
+        --line: rgba(139, 111, 71, 0.22);
+        --white: #fffaf2;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        overflow-x: hidden;
+        background: var(--cream);
+        color: var(--dark);
+        font-family: "Cormorant Garamond", "Noto Serif KR", serif;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        pointer-events: none;
+        opacity: 0.35;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 26px clamp(22px, 5vw, 60px);
+        color: var(--dark);
+        mix-blend-mode: multiply;
+      }
+
+      .nav-logo {
+        font-size: 1.25rem;
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: clamp(16px, 3vw, 38px);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: rgba(26, 22, 18, 0.68);
+        font-family: "Noto Serif KR", serif;
+        font-size: 0.68rem;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .hero {
+        min-height: 100svh;
+        display: grid;
+        grid-template-columns: minmax(280px, 0.95fr) minmax(320px, 1.05fr);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-left {
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        padding: clamp(96px, 12vw, 150px) clamp(22px, 5vw, 60px) clamp(60px, 8vw, 92px);
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-eyebrow,
+      .section-label,
+      .contact-label {
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-family: "Noto Serif KR", serif;
+        font-size: 0.7rem;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .hero-name {
+        margin: 0 0 28px;
+        font-size: clamp(4.1rem, 7vw, 7.4rem);
+        font-style: italic;
+        font-weight: 300;
+        letter-spacing: 0;
+        line-height: 0.95;
+      }
+
+      .hero-name em {
+        color: var(--accent);
+        font-style: normal;
+      }
+
+      .hero-tagline {
+        max-width: 370px;
+        margin: 0;
+        color: var(--muted);
+        font-family: "Noto Serif KR", serif;
+        font-size: 0.96rem;
+        font-weight: 300;
+        line-height: 1.9;
+        word-break: keep-all;
+      }
+
+      .hero-scroll {
+        display: inline-flex;
+        align-items: center;
+        gap: 16px;
+        width: fit-content;
+        margin-top: 54px;
+        font-family: "Noto Serif KR", serif;
+        font-size: 0.7rem;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .scroll-line {
+        width: 48px;
+        height: 1px;
+        background: var(--warm);
+      }
+
+      .hero-right {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-image-grid {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1.2fr 0.8fr;
+        gap: 3px;
+      }
+
+      .hero-img {
+        min-height: 0;
+        overflow: hidden;
+        background: #d4c8b7;
+      }
+
+      .hero-img:first-child {
+        grid-column: 1 / 3;
+      }
+
+      .hero-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: saturate(0.9);
+        transition: transform 7s ease;
+      }
+
+      .hero-img:hover img {
+        transform: scale(1.05);
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to right, var(--cream), transparent 34%);
+      }
+
+      #works {
+        padding: clamp(76px, 10vw, 128px) clamp(22px, 5vw, 60px);
+      }
+
+      .section-header {
+        max-width: 760px;
+        margin-bottom: clamp(42px, 7vw, 82px);
+      }
+
+      .section-title {
+        margin: 0;
+        font-size: clamp(3rem, 6vw, 6.2rem);
+        font-style: italic;
+        font-weight: 300;
+        line-height: 1.05;
+      }
+
+      .gallery-masonry {
+        column-count: 3;
+        column-gap: clamp(14px, 2vw, 22px);
+      }
+
+      .gallery-item {
+        break-inside: avoid;
+        display: block;
+        position: relative;
+        width: 100%;
+        padding: 0;
+        margin: 0 0 clamp(14px, 2vw, 22px);
+        overflow: hidden;
+        color: inherit;
+        font: inherit;
+        text-align: left;
+        border: 0;
+        cursor: zoom-in;
+        background: #d4c8b7;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        filter: saturate(0.86);
+        transition: transform 0.55s ease, filter 0.55s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.04);
+        filter: saturate(1);
+      }
+
+      .gallery-caption {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 48px 24px 22px;
+        color: var(--white);
+        background: linear-gradient(transparent, rgba(26, 22, 18, 0.76));
+        transform: translateY(100%);
+        transition: transform 0.35s ease;
+      }
+
+      .gallery-item:hover .gallery-caption {
+        transform: translateY(0);
+      }
+
+      .gallery-caption-num {
+        margin: 0 0 6px;
+        font-family: "Noto Serif KR", serif;
+        font-size: 0.7rem;
+        opacity: 0.68;
+      }
+
+      .gallery-caption-title {
+        margin: 0;
+        font-size: 1.2rem;
+        font-style: italic;
+      }
+
+      #about {
+        display: grid;
+        grid-template-columns: minmax(260px, 1fr) minmax(280px, 1fr);
+        gap: clamp(42px, 7vw, 100px);
+        align-items: center;
+        padding: clamp(82px, 11vw, 145px) clamp(22px, 5vw, 60px);
+        background: var(--dark);
+        color: var(--cream);
+      }
+
+      .about-heading {
+        margin: 0 0 30px;
+        font-size: clamp(2.6rem, 5vw, 5rem);
+        font-style: italic;
+        font-weight: 300;
+        line-height: 1.12;
+      }
+
+      .about-body {
+        max-width: 600px;
+        margin: 0 0 22px;
+        color: rgba(245, 240, 232, 0.74);
+        font-family: "Noto Serif KR", serif;
+        font-size: 0.98rem;
+        font-weight: 200;
+        line-height: 2;
+        word-break: keep-all;
+      }
+
+      .about-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 38px;
+      }
+
+      .tag {
+        padding: 8px 15px;
+        color: rgba(245, 240, 232, 0.64);
+        border: 1px solid rgba(245, 240, 232, 0.2);
+        font-family: "Noto Serif KR", serif;
+        font-size: 0.7rem;
+      }
+
+      .about-image-stack {
+        position: relative;
+        min-height: 580px;
+      }
+
+      .about-img-1,
+      .about-img-2 {
+        position: absolute;
+        object-fit: cover;
+        filter: saturate(0.76);
+      }
+
+      .about-img-1 {
+        top: 0;
+        right: 0;
+        width: 75%;
+        height: 72%;
+      }
+
+      .about-img-2 {
+        bottom: 0;
+        left: 0;
+        width: 60%;
+        height: 54%;
+        border: 4px solid var(--dark);
+      }
+
+      #contact {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(78px, 10vw, 128px) clamp(22px, 5vw, 60px);
+        text-align: center;
+      }
+
+      #contact::before {
+        content: "CONTACT";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: rgba(139, 111, 71, 0.06);
+        font-size: clamp(5rem, 18vw, 14rem);
+        font-style: italic;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+
+      .contact-inner {
+        position: relative;
+        z-index: 1;
+      }
+
+      .contact-heading {
+        margin: 0 0 40px;
+        font-size: clamp(3rem, 7vw, 7rem);
+        font-style: italic;
+        font-weight: 300;
+        line-height: 1;
+      }
+
+      .contact-email {
+        display: inline-block;
+        padding-bottom: 5px;
+        border-bottom: 1px solid var(--warm);
+        font-size: 1.25rem;
+        font-style: italic;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 30px clamp(22px, 5vw, 60px);
+        background: var(--dark);
+        color: rgba(245, 240, 232, 0.38);
+        font-family: "Noto Serif KR", serif;
+        font-size: 0.78rem;
+      }
+
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 54px;
+        background: rgba(26, 22, 18, 0.95);
+      }
+
+      .lightbox.active {
+        display: flex;
+      }
+
+      .lightbox-inner {
+        position: relative;
+        max-width: 88vw;
+        max-height: 88svh;
+      }
+
+      .lightbox-inner img {
+        max-width: 100%;
+        max-height: 82svh;
+        object-fit: contain;
+      }
+
+      .lightbox-title {
+        display: block;
+        margin-top: 12px;
+        color: rgba(245, 240, 232, 0.72);
+        font-size: 1rem;
+        font-style: italic;
+      }
+
+      .lightbox-close,
+      .lightbox-nav {
+        position: fixed;
+        color: rgba(245, 240, 232, 0.72);
+        background: transparent;
+        border: 1px solid rgba(245, 240, 232, 0.22);
+        cursor: pointer;
+      }
+
+      .lightbox-close {
+        top: 28px;
+        right: 34px;
+        width: 44px;
+        height: 44px;
+        font-size: 1.7rem;
+      }
+
+      .lightbox-nav {
+        top: 50%;
+        min-width: 52px;
+        min-height: 52px;
+        transform: translateY(-50%);
+        font-size: 1.4rem;
+      }
+
+      .lightbox-prev {
+        left: 24px;
+      }
+
+      .lightbox-next {
+        right: 24px;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(34px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 900px) {
+        nav {
+          position: sticky;
+          background: rgba(245, 240, 232, 0.9);
+          backdrop-filter: blur(12px);
+          mix-blend-mode: normal;
+        }
+
+        .nav-links {
+          gap: 14px;
+        }
+
+        .hero,
+        #about {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-right {
+          min-height: 56svh;
+        }
+
+        .hero-overlay {
+          background: linear-gradient(to top, var(--cream), transparent 40%);
+        }
+
+        .gallery-masonry {
+          column-count: 2;
+        }
+
+        .about-image-stack {
+          min-height: 360px;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .nav-links {
+          display: none;
+        }
+
+        .gallery-masonry {
+          column-count: 1;
+        }
+
+        footer {
+          flex-direction: column;
+        }
+
+        .lightbox {
+          padding: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="작품 크게 보기">
+      <button class="lightbox-close" id="close-lightbox" type="button" aria-label="닫기">x</button>
+      <button class="lightbox-nav lightbox-prev" id="prev-image" type="button" aria-label="이전 작품">&lt;</button>
+      <div class="lightbox-inner">
+        <img id="lightbox-img" src="" alt="" />
+        <span class="lightbox-title" id="lightbox-title"></span>
+      </div>
+      <button class="lightbox-nav lightbox-next" id="next-image" type="button" aria-label="다음 작품">&gt;</button>
+    </div>
+
+    <nav>
+      <a href="index.html" class="nav-logo">Xunmi</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Quiet</a></li>
+        <li><a href="salon.html">Salon</a></li>
+        <li><a href="studio.html">Studio</a></li>
+        <li><a href="#works">Works</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-left">
+        <p class="hero-eyebrow">Editorial Portfolio</p>
+        <h1 class="hero-name">
+          Painting<br />
+          the <em>Everyday</em><br />
+          Extraordinary
+        </h1>
+        <p class="hero-tagline">
+          일상의 장면과 상상 속 이미지를 조용히 모아, 작품의 색과 정서가 먼저 말하도록 구성한 포트폴리오입니다.
+        </p>
+        <a href="#works" class="hero-scroll">
+          <span>작품 보기</span>
+          <span class="scroll-line"></span>
+        </a>
+      </div>
+      <div class="hero-right">
+        <div class="hero-image-grid" id="hero-grid"></div>
+        <div class="hero-overlay"></div>
+      </div>
+    </section>
+
+    <section id="works">
+      <div class="section-header reveal">
+        <p class="section-label">Selected Works</p>
+        <h2 class="section-title">A softer editorial archive</h2>
+      </div>
+      <div class="gallery-masonry" id="gallery" aria-live="polite"></div>
+    </section>
+
+    <section id="about">
+      <div class="about-text reveal">
+        <p class="section-label">About the Artist</p>
+        <h2 class="about-heading">평범한 장면을 오래 남는 이미지로</h2>
+        <p class="about-body">
+          작품은 익숙한 장면에서 시작하지만, 색과 표정, 작은 리듬을 통해 낯선 감각으로 이동합니다.
+          이 페이지는 잡지의 화보처럼 작품을 조금 더 밀도 있게 보여주는 버전입니다.
+        </p>
+        <p class="about-body">
+          새로운 이미지가 `artImg` 폴더에 추가되면, 빌드 과정에서 생성되는 `artworks.json`을 통해 이 페이지에도 자동 반영됩니다.
+        </p>
+        <div class="about-tags">
+          <span class="tag">Painting</span>
+          <span class="tag">Illustration</span>
+          <span class="tag">Archive</span>
+          <span class="tag">Seoul</span>
+        </div>
+      </div>
+      <div class="about-image-stack reveal" id="about-stack"></div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-inner">
+        <p class="contact-label">Get in Touch</p>
+        <h2 class="contact-heading reveal">작품 문의</h2>
+        <a href="mailto:hello@example.com" class="contact-email reveal">hello@example.com</a>
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2026 Xunmi Portfolio</span>
+      <span>Seoul, Korea</span>
+    </footer>
+
+    <script>
+      const heroGrid = document.querySelector("#hero-grid");
+      const gallery = document.querySelector("#gallery");
+      const aboutStack = document.querySelector("#about-stack");
+      const lightbox = document.querySelector("#lightbox");
+      const lightboxImage = document.querySelector("#lightbox-img");
+      const lightboxTitle = document.querySelector("#lightbox-title");
+      const closeButton = document.querySelector("#close-lightbox");
+      const prevButton = document.querySelector("#prev-image");
+      const nextButton = document.querySelector("#next-image");
+
+      let works = [];
+      let currentIndex = 0;
+
+      async function loadArtworkData() {
+        let response = await fetch("/api/artworks");
+        if (!response.ok) response = await fetch("artworks.json");
+        const data = await response.json();
+        return data.works || [];
+      }
+
+      function metaText(work) {
+        return [work.year, work.medium].filter(Boolean).join(" / ");
+      }
+
+      function createImage(work, className, index) {
+        const wrapper = document.createElement("div");
+        wrapper.className = className;
+
+        const image = document.createElement("img");
+        image.src = work.src;
+        image.alt = work.title;
+        image.loading = index === 0 ? "eager" : "lazy";
+
+        wrapper.append(image);
+        return wrapper;
+      }
+
+      function renderHero() {
+        works.slice(0, 3).forEach((work, index) => {
+          heroGrid.append(createImage(work, "hero-img", index));
+        });
+      }
+
+      function renderGallery() {
+        works.forEach((work, index) => {
+          const item = document.createElement("button");
+          item.className = "gallery-item reveal";
+          item.type = "button";
+          item.setAttribute("aria-label", `${work.title} 크게 보기`);
+          item.addEventListener("click", () => openLightbox(index));
+
+          const image = document.createElement("img");
+          image.src = work.src;
+          image.alt = work.title;
+          image.loading = "lazy";
+
+          const caption = document.createElement("div");
+          caption.className = "gallery-caption";
+          caption.innerHTML = `
+            <p class="gallery-caption-num">${String(index + 1).padStart(2, "0")}</p>
+            <p class="gallery-caption-title">${work.title}</p>
+          `;
+
+          item.append(image, caption);
+          gallery.append(item);
+        });
+      }
+
+      function renderAboutStack() {
+        const first = works[6] || works[0];
+        const second = works[1] || works[0];
+        if (!first || !second) return;
+
+        aboutStack.innerHTML = `
+          <img class="about-img-1" src="${first.src}" alt="${first.title}" />
+          <img class="about-img-2" src="${second.src}" alt="${second.title}" />
+        `;
+      }
+
+      function openLightbox(index) {
+        currentIndex = index;
+        updateLightbox();
+        lightbox.classList.add("active");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("active");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      function updateLightbox() {
+        const work = works[currentIndex];
+        lightboxImage.src = work.src;
+        lightboxImage.alt = work.title;
+        lightboxTitle.textContent = [work.title, metaText(work)].filter(Boolean).join(" · ");
+      }
+
+      function moveLightbox(step) {
+        currentIndex = (currentIndex + step + works.length) % works.length;
+        updateLightbox();
+      }
+
+      function revealOnScroll() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) entry.target.classList.add("visible");
+            });
+          },
+          { threshold: 0.12 }
+        );
+
+        document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+      }
+
+      closeButton.addEventListener("click", closeLightbox);
+      prevButton.addEventListener("click", () => moveLightbox(-1));
+      nextButton.addEventListener("click", () => moveLightbox(1));
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (!lightbox.classList.contains("active")) return;
+        if (event.key === "Escape") closeLightbox();
+        if (event.key === "ArrowLeft") moveLightbox(-1);
+        if (event.key === "ArrowRight") moveLightbox(1);
+      });
+
+      loadArtworkData()
+        .then((data) => {
+          works = data;
+          renderHero();
+          renderGallery();
+          renderAboutStack();
+          revealOnScroll();
+        })
+        .catch(() => {
+          gallery.innerHTML = "<p>작품을 불러오지 못했습니다.</p>";
+        });
+    </script>
+  </body>
+</html>

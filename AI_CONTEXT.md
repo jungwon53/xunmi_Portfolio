@@ -21,6 +21,7 @@
 - `script.js`: `/api/artworks`에서 작품 목록을 불러와 갤러리와 라이트박스를 렌더링합니다.
 - `salon.html`, `salon.css`, `salon.js`: 어두운 전시 벽과 편집형 레이아웃을 쓰는 두 번째 포트폴리오 페이지입니다.
 - `studio.html`, `studio.css`, `studio.js`: 포인터 이동, 썸네일 클릭, 이전/다음 버튼, 키보드 방향키 이벤트를 쓰는 인터랙티브 포트폴리오 페이지입니다.
+- `portfolio.html`: 인라인 CSS/JS로 구성된 편집형 포트폴리오 페이지입니다. `artworks.json` 또는 `/api/artworks`를 읽어 이미지 목록을 동적으로 렌더링합니다.
 - `server.js`: 정적 파일 제공 및 `artImg` 폴더를 읽어 `/api/artworks` JSON을 제공합니다.
 - `scripts/generate-artworks.js`: GitHub Pages 같은 정적 호스팅에서 사용할 `artworks.json`을 생성합니다.
 - `artworks.json`: `npm run build` 또는 GitHub Actions 배포 중 생성되는 정적 작품 목록입니다.
@@ -42,6 +43,7 @@
 - About 영역은 작가 소개, 작업 문장, 연락처를 나중에 확장하기 위한 자리입니다.
 - 추가 페이지 `salon.html`은 더 강한 편집/전시 벽 분위기를 제공합니다.
 - 추가 페이지 `studio.html`은 HTML 이벤트와 DOM 업데이트가 드러나는 인터랙티브 실험 페이지입니다.
+- 추가 페이지 `portfolio.html`은 따뜻한 종이 질감과 매거진식 hero/gallery 구성을 제공합니다.
 
 프론트엔드 수정 시 주의할 점:
 
