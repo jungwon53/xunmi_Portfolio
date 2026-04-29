@@ -21,14 +21,14 @@ const mimeTypes = {
 };
 
 function readMetadata() {
-  const metadataPath = path.join(root, "works.json");
+  const metadataPath = path.join(root, "artworks.json");
   if (!fs.existsSync(metadataPath)) return {};
 
   try {
     const data = JSON.parse(fs.readFileSync(metadataPath, "utf8"));
     return Object.fromEntries((data.works || []).map((work) => [work.file, work]));
   } catch (error) {
-    console.warn("Could not read works.json:", error.message);
+    console.warn("Could not read artworks.json:", error.message);
     return {};
   }
 }
